@@ -147,9 +147,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\tbl_admin.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -168,6 +165,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\14_09_2018_11_56_58_55bf55e7946f0ab20dd32a957057f70b_0rcukejgam.jpg" />
+    <Content Include="Content\img\cropping.gif" />
+    <Content Include="Content\img\gifs\9000th-winner-animated-2.gif" />
+    <Content Include="Content\img\gifs\ShakeOut_BannerAds_JoinUs_160x600_v2.gif" />
+    <Content Include="Content\img\images.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\pagination.css" />
     <Content Include="favicon.ico" />
@@ -227,6 +228,8 @@
     <Content Include="Views\User\SignUp.cshtml" />
     <Content Include="Views\User\login.cshtml" />
     <Content Include="Views\User\CreateAd.cshtml" />
+    <Content Include="Views\Shared\_Layout1.cshtml" />
+    <Content Include="Views\User\Ads.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

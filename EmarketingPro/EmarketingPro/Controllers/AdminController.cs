@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using EmarketingPro.Models;
 using PagedList;
 
-namespace WebApplication1.Controllers
+namespace EmarketingPro.Controllers
 {
     public class AdminController : Controller
     {

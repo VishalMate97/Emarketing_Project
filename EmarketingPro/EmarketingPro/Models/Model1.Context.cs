@@ -29,6 +29,5 @@ namespace EmarketingPro.Models
         public DbSet<tbl_category> tbl_category { get; set; }
         public DbSet<tbl_product> tbl_product { get; set; }
         public DbSet<tbl_user> tbl_user { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

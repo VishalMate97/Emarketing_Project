@@ -11,7 +11,6 @@ namespace EmarketingPro.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class tbl_admin
     {
@@ -21,9 +20,7 @@ namespace EmarketingPro.Models
         }
     
         public int ad_id { get; set; }
-        [Required(ErrorMessage="please enter username")]
         public string ad_username { get; set; }
-        [Required(ErrorMessage = "please enter password")]
         public string ad_password { get; set; }
     
         public virtual ICollection<tbl_category> tbl_category { get; set; }

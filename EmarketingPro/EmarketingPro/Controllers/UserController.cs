@@ -48,8 +48,8 @@ namespace EmarketingPro.Controllers
                 u.u_contact = uvm.u_contact;
                 db.tbl_user.Add(u);
                 db.SaveChanges();
-                
-             
+
+
                 return RedirectToAction("Login");
             }
 
@@ -70,7 +70,7 @@ namespace EmarketingPro.Controllers
             {
 
                 Session["u_id"] = ad.u_id.ToString();
-                return RedirectToAction("CreateAd");
+                return RedirectToAction("Index");
 
             }
             else
@@ -83,17 +83,56 @@ namespace EmarketingPro.Controllers
         }
 
 
-
+        [HttpGet]
         public ActionResult CreateAd()
         {
+            List<tbl_category> li = db.tbl_category.ToList();
+            ViewBag.categorylist = new SelectList(li, "cat_id", "cat_name");
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult CreateAd(tbl_product pvm, HttpPostedFileBase imgfile)
+        {
+
+            string path = uploadimgfile(imgfile);
+            if (imgfile.Equals("-1"))
+            {
+                ViewBag.error = "Image could not be uploaded";
+            }
+            else
+            {
+                tbl_product p = new tbl_product();
+                p.pro_name = pvm.pro_name;
+                p.pro_price = pvm.pro_price;
+                p.pro_desc = pvm.pro_desc;
+                p.pro_image = path;
+                p.pro_fk_cat = pvm.pro_fk_cat;
+                p.pro_fk_user = Convert.ToInt32(Session["u_id"].ToString());
+
+                db.tbl_product.Add(p);
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
             return View();
         }
 
 
 
+        public ActionResult Ads(int? id, int? page)
+        {
+            int pagesize = 9, pageindex = 1;
+            pageindex = page.HasValue ? Convert.ToInt32(page) : 1;
+            var list = db.tbl_product.Where(x => x.pro_fk_cat == id).OrderByDescending(x => x.pro_id).ToList();
+            IPagedList<tbl_product> stu = list.ToPagedList(pageindex, pagesize);
 
 
+            return View(stu);
 
+
+        }
 
 
 

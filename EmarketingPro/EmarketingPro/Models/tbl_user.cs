@@ -11,7 +11,6 @@ namespace EmarketingPro.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class tbl_user
     {
@@ -21,14 +20,10 @@ namespace EmarketingPro.Models
         }
     
         public int u_id { get; set; }
-        [Required(ErrorMessage="please enter the name")]
         public string u_name { get; set; }
-        [Required(ErrorMessage = "please enter the email")]
         public string u_email { get; set; }
-        [Required(ErrorMessage = "please enter the password")]
         public string u_password { get; set; }
         public string u_image { get; set; }
-        [Required(ErrorMessage = "please enter the contact")]
         public string u_contact { get; set; }
     
         public virtual ICollection<tbl_product> tbl_product { get; set; }

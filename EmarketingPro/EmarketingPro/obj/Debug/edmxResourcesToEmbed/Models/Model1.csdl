@@ -17,9 +17,9 @@
     <Property Name="cat_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="cat_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="cat_fk_ad" Type="Int32" />
+    <Property Name="cat_status" Type="Int32" />
     <NavigationProperty Name="tbl_admin" Relationship="Self.FK__tbl_categ__cat_f__3B75D760" FromRole="tbl_category" ToRole="tbl_admin" />
     <NavigationProperty Name="tbl_product" Relationship="Self.FK__tbl_produ__pro_f__4316F928" FromRole="tbl_category" ToRole="tbl_product" />
-    <Property Name="cat_status" Type="Int32" />
   </EntityType>
   <EntityType Name="tbl_product">
     <Key>
@@ -27,8 +27,8 @@
     </Key>
     <Property Name="pro_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="pro_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="pro_price" Type="Int32" />
-    <Property Name="pro_image" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pro_price" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="pro_image" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="pro_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="pro_fk_cat" Type="Int32" />
     <Property Name="pro_fk_user" Type="Int32" />
@@ -100,16 +100,5 @@
       <End Role="tbl_user" EntitySet="tbl_user" />
       <End Role="tbl_product" EntitySet="tbl_product" />
     </AssociationSet>
-    <EntitySet Name="sysdiagrams" EntityType="dbEmarketingModel.sysdiagram" />
   </EntityContainer>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
 </Schema>

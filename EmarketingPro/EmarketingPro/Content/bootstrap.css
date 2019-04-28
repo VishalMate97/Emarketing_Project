@@ -3920,7 +3920,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   float: left;
 }
 
-.nav-pills > li > a {
+.nav-pills > li > a,.nav > li> .ht {
   border-radius: 5px;
 }
 
