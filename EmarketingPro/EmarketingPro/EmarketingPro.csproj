@@ -132,6 +132,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Adviewmodel.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,8 +165,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\1-2-vertical.jpg" />
     <Content Include="Content\img\14_09_2018_11_56_58_55bf55e7946f0ab20dd32a957057f70b_0rcukejgam.jpg" />
+    <Content Include="Content\img\ads.png" />
+    <Content Include="Content\img\christmas-sale-vertical-advertising-banner-450w-531750643.jpg" />
     <Content Include="Content\img\cropping.gif" />
+    <Content Include="Content\img\f498e350807015.58da422d7ed7d.jpg" />
     <Content Include="Content\img\gifs\9000th-winner-animated-2.gif" />
     <Content Include="Content\img\gifs\ShakeOut_BannerAds_JoinUs_160x600_v2.gif" />
     <Content Include="Content\img\images.jpg" />
@@ -230,6 +235,7 @@
     <Content Include="Views\User\CreateAd.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\User\Ads.cshtml" />
+    <Content Include="Views\User\ViewAd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

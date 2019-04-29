@@ -42,20 +42,34 @@
                 </div>
 
                 <div class="col-lg-8 col-md-8">
-                    <div class="row">
 
+                    @using (@Html.BeginForm("Ads", "User"))
+                    {
+                        <div class="navbar-form ">
+                            <div class="form-group">
+
+                                <input type="text" class="form-control" placeholder="Search" name="search" id="search">
+                            </div>
+                            <button type="submit" class="btn btn-success">Search</button>
+                        </div>
+                    }
+
+                    <div class="row">
+                        @{int x = 0;}
                         @if (Model != null)
                         {
                             foreach (var item in Model)
                             {
+                                x++;
                                 <div class="col-lg-4 col-md-4" style="height:200px;margin-top:100px">
                                     <img src="@Url.Content(item.pro_image)" style=" height:100%;width:100% ;border-radius:50px 50px 50px 50px" />
-                                    <h4 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@Html.ActionLink(@item.pro_name, "Ads", new { id = @item.pro_id })</h4>
+                                    <h4 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@Html.ActionLink(@item.pro_name, "ViewAd", new { id = @item.pro_id })</h4>
 
                                 </div>
 
                             }
                         }
+                        <h4>@x results found</h4>
                     </div>
                 </div>
 

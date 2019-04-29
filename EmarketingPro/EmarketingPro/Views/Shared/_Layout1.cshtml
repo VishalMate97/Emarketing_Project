@@ -25,11 +25,14 @@
                     @if (Session["u_id"] != null)
                     {
                         @Html.ActionLink("Post An Ad", "CreateAd", "User", null, new { @class = "ht" })
-
+                        
                     }
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+
+                
+                
                 <li>
                     @if (Session["u_id"] == null)
                     {
@@ -42,6 +45,10 @@
                     @if (Session["u_id"] == null)
                     {
                         @Html.ActionLink("Sign Up", "SignUp", "User", null, new { @class = "ht" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Logout", "Logout", "User", null, new { @class = "ht" })
                     }
 
                 <li>

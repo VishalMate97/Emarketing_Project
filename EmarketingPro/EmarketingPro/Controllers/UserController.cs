@@ -134,15 +134,62 @@ namespace EmarketingPro.Controllers
 
         }
 
+        [HttpPost]
+        public ActionResult Ads(int? id, int? page, string search)
+        {
+            int pagesize = 9, pageindex = 1;
+            pageindex = page.HasValue ? Convert.ToInt32(page) : 1;
+            var list = db.tbl_product.Where(x => x.pro_name.Contains(search)).OrderByDescending(x => x.pro_id).ToList();
+            IPagedList<tbl_product> stu = list.ToPagedList(pageindex, pagesize);
 
 
+            return View(stu);
 
 
+        }
 
 
+        public ActionResult ViewAd(int? id)
+        {
+            Adviewmodel ad = new Adviewmodel();
+            tbl_product p = db.tbl_product.Where(x => x.pro_id == id).SingleOrDefault();
+            ad.pro_id = p.pro_id;
+            ad.pro_name = p.pro_name;
+            ad.pro_image = p.pro_image;
+            ad.pro_desc = p.pro_desc;
+            ad.pro_price = p.pro_price;
+            tbl_category c = db.tbl_category.Where(x => x.cat_id==p.pro_fk_cat).SingleOrDefault();
+            ad.cat_id = c.cat_id;
+            ad.pro_fk_cat = c.cat_id;
+            ad.cat_name = c.cat_name;
+            tbl_user u = db.tbl_user.Where(x => x.u_id==p.pro_fk_user).SingleOrDefault();
+            ad.u_id = u.u_id;
+            ad.pro_fk_user = u.u_id;
+            ad.u_name = u.u_name;
+            ad.u_image = u.u_image;
+            ad.u_contact = u.u_contact;
+
+            return View(ad);
+        }
 
 
+        public ActionResult Logout()
+        {
+            Session.RemoveAll();
+            Session.Abandon();
 
+            return RedirectToAction("Index");
+        }
+
+
+        public ActionResult DeleteAd(int ? id)
+        {
+            tbl_product p = db.tbl_product.Where(x=>x.pro_id == id).SingleOrDefault();
+            db.tbl_product.Remove(p);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
 
 
 
