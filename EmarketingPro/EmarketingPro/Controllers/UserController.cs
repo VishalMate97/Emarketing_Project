@@ -191,9 +191,25 @@ namespace EmarketingPro.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult switch1()
+        {
+            return View();
+        }
 
-
-
+        [HttpPost]
+        public ActionResult switch1(string IP)
+        {
+            if (IP == "admin")
+            {
+                return RedirectToAction("login","Admin");
+            }
+            else
+            {
+                return RedirectToAction("Index","User");
+            }
+           
+        }
 
 
 

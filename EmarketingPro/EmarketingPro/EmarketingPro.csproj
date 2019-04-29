@@ -236,6 +236,7 @@
     <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\User\Ads.cshtml" />
     <Content Include="Views\User\ViewAd.cshtml" />
+    <Content Include="Views\User\switch1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

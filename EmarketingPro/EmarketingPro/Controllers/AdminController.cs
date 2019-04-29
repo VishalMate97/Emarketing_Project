@@ -28,7 +28,7 @@ namespace EmarketingPro.Controllers
             {
 
                 Session["ad_id"] = ad.ad_id.ToString();
-                return RedirectToAction("Create");
+                return RedirectToAction("ViewCategory");
 
             } 
             else
